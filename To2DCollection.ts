@@ -73,4 +73,50 @@ export class To2DCollection{
       }
     }
   }
+  
+ /**
+ * This function will return one dimensional array
+ * from a multi-dimensional array
+ * @param arr: given multi-dimensional array
+ * For instance: [1,[2, [3,[4,[5,[6,[7,[...]]]]]]]]
+ * should return [1,2,3,4,5, 6,7,...]
+ */
+  public fromCollections = (arr: any[]):any[] => {
+    var newArray: any[] = [];
+    var temp = arr[0];
+    
+    try {
+      for (let i = 0; i < arr.length; i++) {
+        var tmp:any[] = []
+    
+        //Only loop through an array at 1
+        while (typeof arr[i] === 'object' && tmp){
+          var elt = arr[1];
+    
+          //current 2D array
+          if (elt[1] && typeof elt[1] === 'object') {
+            tmp = elt[1];
+          }
+          //First extend the lenght of the array
+          //by moving the first element at the end
+          //of the array
+          if (tmp && tmp.length > 0){
+            arr = [...arr, tmp]
+            tmp = []
+          }
+          
+          //Check if it's a 2D and 
+          //push it into the new array,
+          //Then deleted when unneeded
+          if (arr[1][0]){
+            newArray.push(arr[1][0]);
+          } 
+          arr.splice(1, 1)
+        }
+      }
+    } catch (error) {
+      console.error(error)
+    }
+    return [temp, ...newArray]
+  }
 }
