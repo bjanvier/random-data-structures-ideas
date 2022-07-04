@@ -1,4 +1,10 @@
 /**
+  It kind of looks like a singly linked-list data structure, but this
+  one is a 2D arrays generator/converter class
+ */
+export class To2DCollection{
+ 
+ /**
  * @param arr input/given array
  * @returns a new array of collections
  *  where each collection contains the previous
@@ -7,12 +13,7 @@
  * 
  * For example: an array like this: [1, 2, 3, 4, 5, 6,7]
  * will return [1,[2, [3,[4,[5,[6,[7,[...]]]]]]]]
-
-  It kind of looks like a singly linked-list data structure, but this
-  one is a 2D arrays generator/converter class
  */
-export class To2DCollection{
- 
   to2D = (arr: any[]) => {
     var arr1:any[] = [];
   
