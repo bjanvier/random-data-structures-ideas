@@ -81,7 +81,7 @@ export class To2DCollection{
  * For instance: [1,[2, [3,[4,[5,[6,[7,[...]]]]]]]]
  * should return [1,2,3,4,5, 6,7,...]
  */
-  public fromCollections = (arr: any[]):any[] => {
+  public from2D = (arr: any[]):any[] => {
     var newArray: any[] = [];
     var temp = arr[0];
     
